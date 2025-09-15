@@ -1,0 +1,139 @@
+{
+  "page": {
+    "contentPageHeader": {
+      "summary": "Minister for Foreign Affairs",
+      "showThumbnail": false
+    },
+    "title": "Dr Vivian BALAKRISHNAN",
+    "permalink": "/pmo-speed-run/dr-vivian-balakrishnan",
+    "lastModified": "2025-09-09T12:51:15.192Z",
+    "image": {
+      "src": "/images/the-cabinet/updated/vivian-balakrishnan.jpg",
+      "alt": "Portrait of Dr Vivian BALAKRISHNAN, Minister for Foreign Affairs"
+    }
+  },
+  "layout": "content",
+  "content": [
+    {
+      "type": "contentpic",
+      "content": {
+        "type": "prose",
+        "content": [
+          {
+            "type": "paragraph",
+            "attrs": {
+              "dir": "ltr"
+            },
+            "content": [
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Dr Vivian Balakrishnan"
+              },
+              {
+                "type": "text",
+                "text": " is the Minister for Foreign Affairs."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "dir": "ltr"
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "He previously served as Minister-in-charge of the Smart Nation Initiative; Minister for the Environment and Water Resources; Minister for Community Development, Youth and Sports; Second Minister for Trade and Industry; Minister-in-charge of Entrepreneurship; Second Minister for Information, Communications and the Arts and Minister of State for National Development. He has been a Member of Parliament since 2001."
+              }
+            ]
+          }
+        ]
+      },
+      "imageAlt": "Portrait of Dr Vivian BALAKRISHNAN, Minister for Foreign Affairs",
+      "imageSrc": "/images/the-cabinet/updated/vivian-balakrishnan.jpg"
+    },
+    {
+      "type": "prose",
+      "content": [
+        {
+          "type": "paragraph",
+          "attrs": {
+            "dir": "ltr"
+          },
+          "content": [
+            {
+              "type": "text",
+              "text": "He studied Medicine at the National University of Singapore after being awarded the President’s Scholarship in 1980. Following post-graduate specialist training in Ophthalmology, he was admitted as a Fellow of the Royal College of Surgeons of Edinburgh in 1991."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "attrs": {
+            "dir": "ltr"
+          },
+          "content": [
+            {
+              "type": "text",
+              "text": "He was appointed Medical Director of Singapore National Eye Centre in 1999 and Chief Executive Officer of Singapore General Hospital in 2000. Concurrently, he was Commanding Officer of the 2nd Combat Support Hospital of the Singapore Armed Forces from 1999 to 2002.Dr Balakrishnan has helmed the Ministry of Foreign Affairs (MFA) since October 2015. Singapore was Chair of ASEAN in 2018. Singapore also hosted the landmark Singapore Summit between the leaders of the United States and the Democratic People’s Republic of Korea in 2018. During the COVID-19 pandemic, MFA undertook its largest consular operation to bring home Singaporeans stranded overseas. Singapore also co-chairs the Friends of the COVID-19 Vaccine Global Access (COVAX) Facility, which supports vaccine multilateralism and access to COVID-19 vaccines for all."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "attrs": {
+            "dir": "ltr"
+          },
+          "content": [
+            {
+              "type": "text",
+              "text": "Dr Balakrishnan was the Minister-in-charge of the Smart Nation Initiative from 2014 to 2021. He led the conceptualisation and implementation of key initiatives such as the National Digital Identity (Singpass), integrated digital services (LifeSG and MyInfo) and digital finance (PayNow and SGQR). He drove the adoption of new approaches within the Singapore Government, in particular, the use of digital contact tracing systems to combat COVID-19 (TraceTogether and SafeEntry), the streamlining of business applications (GoBusiness), and the adoption of agile in-house software development (SG Tech Stack). He also led the development of strategies and policy reviews that are foundational to Smart Nation, including the Digital Government Blueprint, National Artificial Intelligence Strategy, and Public Sector Data Security Review."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "attrs": {
+            "dir": "ltr"
+          },
+          "content": [
+            {
+              "type": "text",
+              "text": "Dr Balakrishnan was a ministerial facilitator for many rounds of negotiations between 2011 to 2015 that led to the Paris Agreement on climate change at the United Nations. He initiated the Transboundary Haze Pollution Act in 2014 to deter offending local and overseas entities that cause haze."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "attrs": {
+            "dir": "ltr"
+          },
+          "content": [
+            {
+              "type": "text",
+              "text": "Dr Balakrishnan rolled out numerous key initiatives and policies throughout his political career. At the Ministry of the Environment and Water Resources, he increased the capacity for desalination and NEWater production substantially. In 2011, he restarted the building of new hawker centres after 26 years, to ensure that everyone has access to a wide variety of good, fresh, and affordable food in an informal setting, and to enable local hawkers to make a good living. He initiated the Progressive Wage Model in 2014 for cleaners, who became the first group of workers to enjoy increased wages and better terms of employment. At the Ministry of Community Development, Youth and Sports, he established the ComCare system to enhance comprehensive social assistance for all Singaporeans in need. He also oversaw the redevelopment of the National Stadium in 2010. At the Ministry of Information, Communications and the Arts, he worked on the National Broadband Fibre Network project to bring ultra-high speed, low-cost, and efficient fibre broadband to all households and enterprises in Singapore."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "attrs": {
+            "dir": "ltr"
+          },
+          "content": [
+            {
+              "type": "text",
+              "text": "Dr Balakrishnan also moved new legislation and amendments to existing legislation in Parliament, including the Mental Capacity Act, which provides for Lasting Power of Attorney so that seniors can nominate a proxy."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "version": "0.1.0"
+}

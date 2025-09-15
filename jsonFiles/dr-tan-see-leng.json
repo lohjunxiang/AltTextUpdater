@@ -1,0 +1,127 @@
+{
+  "page": {
+    "contentPageHeader": {
+      "summary": "Minister for Manpower",
+      "showThumbnail": false
+    },
+    "title": "Dr TAN See Leng",
+    "permalink": "/pmo-speed-run/dr-tan-see-leng",
+    "lastModified": "2025-09-09T13:06:58.600Z",
+    "image": {
+      "alt": "Portrait of Dr TAN See Leng, Minister for Manpower",
+      "src": "/images/the-cabinet/updated/dr-tan-see-leng.jpg"
+    }
+  },
+  "layout": "content",
+  "content": [
+    {
+      "type": "contentpic",
+      "content": {
+        "type": "prose",
+        "content": [
+          {
+            "type": "paragraph",
+            "attrs": {
+              "dir": "ltr"
+            },
+            "content": [
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Dr Tan See Leng"
+              },
+              {
+                "type": "text",
+                "text": " has served as Singapore's Minister for Manpower since May 2021. In May 2025, he was concurrently appointed Minister-in-charge of Energy and Science & Technology in the Ministry of Trade and Industry."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "dir": "ltr"
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "Prior to this, Dr Tan was Minister in the Prime Minister’s Office (July 2020 – May 2021), Second Minister for Manpower (July 2020 – May 2021), and Second Minister for Trade and Industry (May 2020 – May 2025)."
+              }
+            ]
+          }
+        ]
+      },
+      "imageAlt": "Portrait of Dr TAN See Leng, Minister for Manpower",
+      "imageSrc": "/images/the-cabinet/updated/dr-tan-see-leng.jpg"
+    },
+    {
+      "type": "prose",
+      "content": [
+        {
+          "type": "paragraph",
+          "attrs": {
+            "dir": "ltr"
+          },
+          "content": [
+            {
+              "type": "text",
+              "text": "As Minister for Manpower, Dr Tan led efforts to build a more inclusive and resilient workforce. He championed the expansion of the Progressive Wage Model to uplift lower-wage workers, introduced stronger protections for platform workers, and advocated for more progressive and inclusive workplaces through the landmark Workplace Fairness Act. He also transformed the migrant worker landscape by raising housing standards, improving healthcare access, and supporting their overall well-being."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "attrs": {
+            "dir": "ltr"
+          },
+          "content": [
+            {
+              "type": "text",
+              "text": "At the Ministry of Trade and Industry, Dr Tan led efforts to stabilise electricity supply during the global energy crunch, such as setting up our first Standby Liquefied Natural Gas Facility. He also championed the development of alternative low-carbon energy sources for Singapore, including solar, hydrogen, and electricity imports from the region."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "attrs": {
+            "dir": "ltr"
+          },
+          "content": [
+            {
+              "type": "text",
+              "text": "Before entering politics, Dr Tan was the Group Chief Executive Officer and Managing Director of IHH HealthCare Berhad (2014 – 2019), where he led the group to double its revenue from RM 6 billion to RM 12 billion, positioning it as one of Asia’s largest healthcare networks. He was also Group Chief Executive Officer and Managing Director of Parkway Pantai Limited (2010 – 2019), during which the group achieved a landmark listing, raising USD 2.1 billion in 2012."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "attrs": {
+            "dir": "ltr"
+          },
+          "content": [
+            {
+              "type": "text",
+              "text": "Early in his career, Dr Tan founded Healthway Medical Group and was its Chief Executive Officer from 1993 to 2002. Under his leadership, Healthway expanded to 40 locations and achieved a turnover of S$20 million, establishing itself as Singapore’s second-largest private primary healthcare provider."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "attrs": {
+            "dir": "ltr"
+          },
+          "content": [
+            {
+              "type": "text",
+              "text": "Dr Tan’s extensive experience in business and healthcare continues to shape his leadership in public service."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "version": "0.1.0"
+}

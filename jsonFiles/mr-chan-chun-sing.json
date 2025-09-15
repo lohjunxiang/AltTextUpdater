@@ -1,0 +1,115 @@
+{
+  "page": {
+    "contentPageHeader": {
+      "summary": "Coordinating Minister for Public Services and Minister for Defence",
+      "showThumbnail": false
+    },
+    "title": "Mr CHAN Chun Sing",
+    "permalink": "/pmo-speed-run/mr-chan-chun-sing",
+    "lastModified": "2025-09-09T12:46:38.148Z",
+    "image": {
+      "src": "/images/the-cabinet/updated/chan-chun-sing.jpg",
+      "alt": "Portrait of Mr CHAN Chun Sing, Coordinating Minister for Public Services and Minister for Defence"
+    }
+  },
+  "layout": "content",
+  "content": [
+    {
+      "type": "contentpic",
+      "content": {
+        "type": "prose",
+        "content": [
+          {
+            "type": "paragraph",
+            "attrs": {
+              "dir": "ltr"
+            },
+            "content": [
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Mr Chan Chun Sing "
+              },
+              {
+                "type": "text",
+                "text": "was appointed Singapore’s Coordinating Minister for Public Services and Minister for Defence on 23 May 2025. He has concurrently served as Minister-in-charge of the Public Service since 1 May 2018."
+              }
+            ]
+          }
+        ]
+      },
+      "imageAlt": "Portrait of Mr CHAN Chun Sing Coordinating Minister for Public Services and Minister for Defence",
+      "imageSrc": "/images/the-cabinet/updated/chan-chun-sing.jpg"
+    },
+    {
+      "type": "prose",
+      "content": [
+        {
+          "type": "paragraph",
+          "attrs": {
+            "dir": "ltr"
+          },
+          "content": [
+            {
+              "type": "text",
+              "text": "Mr Chan previously served as Minister for Education from May 2021 to May 2025, where he advanced lifelong learning and broadened access to education for learners of diverse abilities, needs and interests. He strengthened professional development for educators and deepened partnerships between schools and industry to better align education with future workforce needs. From May 2018 to May 2021, Mr Chan led Singapore’s economic and industrial development as Minister for Trade and Industry. In this role, he ratified the Regional Comprehensive Economic Partnership agreement and deepened international cooperation on the digital economy. He also served as Deputy Chairman of the People’s Association from October 2015 to May 2021, steering national efforts to foster social cohesion and community engagement."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "attrs": {
+            "dir": "ltr"
+          },
+          "content": [
+            {
+              "type": "text",
+              "text": "From May 2015 to May 2018, he was Secretary-General of the National Trades Union Congress and expanded the Labour Movement network to represent all working people in Singapore. Before this, he served as Minister for Social and Family Development (2013-2015) and Acting Minister for Community Development, Youth and Sports (2011-12). He was also Second Minister for Defence (2013-15) and Minister of State for Information, Communications and the Arts (2011-12)."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "attrs": {
+            "dir": "ltr"
+          },
+          "content": [
+            {
+              "type": "text",
+              "text": "Serving with the Singapore Armed Forces (SAF) from 1987 to 2011, Mr Chan held various appointments including Chief of Army. He left the SAF to run in the 2011 General Election and was elected Member of Parliament for Tanjong Pagar Group Representation Constituency."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "attrs": {
+            "dir": "ltr"
+          },
+          "content": [
+            {
+              "type": "text",
+              "text": "An SAF (Overseas) and President’s Scholarship holder, he graduated with First Class Honours in Economics from Christ’s College, Cambridge University, UK. He was also awarded the 1998 Distinguished Master Strategist Award by the US Army Command and General Staff College. In 2005, he completed the Sloan Fellows Programme at the Massachusetts Institute of Technology under the Lee Kuan Yew Scholarship."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "attrs": {
+            "dir": "ltr"
+          },
+          "content": [
+            {
+              "type": "text",
+              "text": "Born in 1969, Mr Chan is married with three children and enjoys reading and jogging."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "version": "0.1.0"
+}

@@ -1,0 +1,116 @@
+{
+  "page": {
+    "contentPageHeader": {
+      "summary": "Deputy Prime Minister and Minister for Trade and Industry",
+      "showThumbnail": false
+    },
+    "title": "Mr GAN Kim Yong",
+    "permalink": "/mr-gan-kim-yong",
+    "lastModified": "2025-09-09T12:40:37.827Z",
+    "image": {
+      "alt": "Deputy Prime Minister and Minister for Trade and Industry Mr GAN Kim Yong",
+      "src": "/images/the-cabinet/updated/gan-kim-yong.jpg"
+    }
+  },
+  "layout": "content",
+  "content": [
+    {
+      "type": "contentpic",
+      "content": {
+        "type": "prose",
+        "content": [
+          {
+            "type": "paragraph",
+            "attrs": {
+              "dir": "ltr"
+            },
+            "content": [
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Mr Gan Kim Yong"
+              },
+              {
+                "type": "text",
+                "text": " is the Deputy Prime Minister and Minister for Trade and Industry. He is concurrently the Chairman of the Monetary Authority of Singapore and is responsible for the Strategy Group in the Prime Minister’s Office, where he oversees the National Climate Change Secretariat and the National Population and Talent Division. In addition, Mr Gan is a member of the Research, Innovation and Enterprise Council and the National Research Foundation Board."
+              }
+            ]
+          }
+        ]
+      },
+      "imageAlt": "Deputy Prime Minister and Minister for Trade and Industry Mr GAN Kim Yong",
+      "imageSrc": "/images/the-cabinet/updated/gan-kim-yong.jpg"
+    },
+    {
+      "type": "prose",
+      "content": [
+        {
+          "type": "paragraph",
+          "attrs": {
+            "dir": "ltr"
+          },
+          "content": [
+            {
+              "type": "text",
+              "text": "Mr Gan entered politics in 2001. He has held positions in the Ministry of Education, Ministry of Manpower and Ministry of Health. He also helmed the Ministerial Committee on Ageing, to drive the formulation and implementation of ageing policies in Singapore, and co-chaired the Multi-Ministry Taskforce on COVID-19 from 2020 to 2023, which directed and coordinated Singapore’s response to the COVID-19 pandemic."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "attrs": {
+            "dir": "ltr"
+          },
+          "content": [
+            {
+              "type": "text",
+              "text": "Mr Gan started his career in the Singapore Civil Service at the Ministry of Trade and Industry and the Ministry of Home Affairs. In 1989, he left the civil service for the private sector and joined NatSteel Ltd as a manager for Corporate Planning. He was promoted to Executive Vice President of NatSteel and CEO of NatSteel Resorts International and NatSteel Properties in 1996. In 2005, he became the CEO and President of NatSteel."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "attrs": {
+            "dir": "ltr"
+          },
+          "content": [
+            {
+              "type": "text",
+              "text": "Mr Gan was awarded the Overseas Merit Scholarship to read Engineering in Cambridge University and graduated with a bachelor’s degree (honours) in 1981. Mr Gan subsequently obtained his master’s degree in Engineering from Cambridge University in 1985."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "attrs": {
+            "dir": "ltr"
+          },
+          "content": [
+            {
+              "type": "text",
+              "text": "Born in 1959, Mr Gan is married with two daughters."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "infocards",
+      "title": "More on Mr Gan Kim Yong",
+      "variant": "cardsWithoutImages",
+      "maxColumns": "1",
+      "cards": [
+        {
+          "imageFit": "cover",
+          "url": "https://www.pmo.gov.sg/newsroom?page=1&keywords=&from=DPM%20Gan%20Kim%20Yong&topic=&year=&type=",
+          "title": "View all speeches, interviews and statements from Mr GAN Kim Yong"
+        }
+      ]
+    }
+  ],
+  "version": "0.1.0"
+}

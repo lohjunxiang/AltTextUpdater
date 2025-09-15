@@ -1,0 +1,91 @@
+{
+  "page": {
+    "contentPageHeader": {
+      "summary": "Minister for National Development",
+      "showThumbnail": false
+    },
+    "title": "Mr CHEE Hong Tat",
+    "permalink": "/pmo-speed-run/mr-chee-hong-tat",
+    "lastModified": "2025-09-09T13:08:53.688Z",
+    "image": {
+      "src": "/images/the-cabinet/updated/mr-chee-hong-tat.jpg",
+      "alt": "Portrait of Mr CHEE Hong Tat, Minister for National Development"
+    }
+  },
+  "layout": "content",
+  "content": [
+    {
+      "type": "contentpic",
+      "content": {
+        "type": "prose",
+        "content": [
+          {
+            "type": "paragraph",
+            "attrs": {
+              "dir": "ltr"
+            },
+            "content": [
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Mr Chee Hong Tat "
+              },
+              {
+                "type": "text",
+                "text": "is currently the Minister for National Development. He also serves as Deputy Chairman of the Monetary Authority of Singapore Board of Directors, Chairman of the Chinese Community Liaison Group and an Adviser to the Board of Directors of Business China."
+              }
+            ]
+          }
+        ]
+      },
+      "imageAlt": "Portrait of Mr CHEE Hong Tat, Minister for National Development",
+      "imageSrc": "/images/the-cabinet/updated/mr-chee-hong-tat.jpg"
+    },
+    {
+      "type": "prose",
+      "content": [
+        {
+          "type": "paragraph",
+          "attrs": {
+            "dir": "ltr"
+          },
+          "content": [
+            {
+              "type": "text",
+              "text": "Mr Chee was first elected as a Member of Parliament for the Bishan-Toa Payoh Group Representation Constituency (GRC) in 2015 and was re-elected during the 2020 and 2025 General Elections.  Before joining politics, he spent 17 years in the Public Service, and had served as the Principal Private Secretary to Minister Mentor Lee Kuan Yew, Chief Executive of the Energy Market Authority and Second Permanent Secretary in the Ministry of Trade and Industry. "
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "attrs": {
+            "dir": "ltr"
+          },
+          "content": [
+            {
+              "type": "text",
+              "text": "Before taking on his current role, Mr Chee had served as Minister for Transport, Second Minister for Finance, and Senior Minister of State for Health, Communications & Information, Education, Trade & Industry and Foreign Affairs.  He was also Deputy Secretary of the National Trades Union Congress from May 2021 to June 2022. "
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "attrs": {
+            "dir": "ltr"
+          },
+          "content": [
+            {
+              "type": "text",
+              "text": "Mr Chee was born in 1973 and is married with four children.  He graduated from the University of California at Berkeley in 1996 with a Bachelor of Science (Highest Honours) in Electrical Engineering and Computer Science and a Bachelor of Arts (Highest Honours) in Economics. He obtained his Masters of Business Administration from Adelaide University in 2006.  He received the Distinguished Service Award from the National Trades Union Congress in April 2021 and was conferred an Honorary Fellow by the Institution of Engineers, Singapore in January 2023."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "version": "0.1.0"
+}

@@ -1,0 +1,103 @@
+{
+  "page": {
+    "contentPageHeader": {
+      "summary": "Coordinating Minister for National Security and Minister for Home Affairs",
+      "showThumbnail": false
+    },
+    "title": "Mr K Shanmugam",
+    "permalink": "/mr-k-shanmugam",
+    "lastModified": "2025-09-09T12:42:52.271Z",
+    "image": {
+      "src": "/images/the-cabinet/updated/shanmugam.jpg",
+      "alt": "Portrait of Mr K Shanmugam Coordinating Minister for National Security and Minister for Home Affairs"
+    }
+  },
+  "layout": "content",
+  "content": [
+    {
+      "type": "contentpic",
+      "content": {
+        "type": "prose",
+        "content": [
+          {
+            "type": "paragraph",
+            "attrs": {
+              "dir": "ltr"
+            },
+            "content": [
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Mr K Shanmugam "
+              },
+              {
+                "type": "text",
+                "text": "was educated at Raffles Institution from 1972 to 1977. He then read law at the National University of Singapore (NUS), where he graduated at the top of his class with First Class Honours, in 1984. He was admitted to the Singapore Bar as an Advocate & Solicitor in 1985."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "dir": "ltr"
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "Mr Shanmugam went into private practice and became one of the Senior Partners and Head of Litigation & Dispute Resolution at Allen & Gledhill LLP, which was the largest law firm in Singapore. In 1998, he was appointed a Senior Counsel of the Supreme Court of Singapore at the age of 38, one of the youngest lawyers to be so appointed."
+              }
+            ]
+          }
+        ]
+      },
+      "imageAlt": "Portrait of Mr K Shanmugam Coordinating Minister for National Security and Minister for Home Affairs",
+      "imageSrc": "/images/the-cabinet/updated/shanmugam.jpg"
+    },
+    {
+      "type": "prose",
+      "content": [
+        {
+          "type": "paragraph",
+          "attrs": {
+            "dir": "ltr"
+          },
+          "content": [
+            {
+              "type": "text",
+              "text": "Mr Shanmugam had a successful practice and was consistently recognised in international publications, as one of the top litigation, arbitration and insolvency Counsel in Asia and Singapore. While in practice, he regularly handled trial work in major corporate, commercial and insolvency disputes, malpractice suits and inquiries; and has acted for lawyers in disciplinary inquiries as well as in criminal proceedings. Mr Shanmugam has also acted for senior government leaders in Singapore, including the previous Prime Ministers of Singapore, as well as for the then-Chief Justice of Singapore. More than 100 of the cases handled by Mr Shanmugam have been reported in the Law Reports."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "attrs": {
+            "dir": "ltr"
+          },
+          "content": [
+            {
+              "type": "text",
+              "text": "Prior to accepting public office, Mr Shanmugam served in various committees and Boards, including the Advisory Board of the NUS Faculty of Law; the Raffles Institution Board of Governors; the Media Development Authority; and Sembawang Corporation Industries Ltd (a company listed on the Singapore Exchange). Mr Shanmugam was also President of the Singapore Indian Development Association (SINDA) Executive Committee from March 2002 to March 2009 and is the Chairman of the SINDA Board of Trustees since October 2023."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "attrs": {
+            "dir": "ltr"
+          },
+          "content": [
+            {
+              "type": "text",
+              "text": "On 1 May 2008 Mr Shanmugam was appointed a Cabinet Minister. He is now the Coordinating Minister for National Security (since May 2025) and Minister for Home Affairs (since 2015). He has also served as the Minister for Law (2008–2025), and the Minister for Foreign Affairs (2011–2015)."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "version": "0.1.0"
+}

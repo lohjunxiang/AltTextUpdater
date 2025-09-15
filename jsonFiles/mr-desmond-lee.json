@@ -1,0 +1,127 @@
+{
+  "page": {
+    "contentPageHeader": {
+      "summary": "Minister for Education",
+      "showThumbnail": false
+    },
+    "title": "Mr Desmond LEE",
+    "permalink": "/pmo-speed-run/mr-desmond-lee",
+    "lastModified": "2025-09-09T13:00:13.850Z",
+    "image": {
+      "src": "/images/the-cabinet/updated/desmond-lee.jpg",
+      "alt": "Portrait of Mr Desmond LEE, Minister for Education"
+    }
+  },
+  "layout": "content",
+  "content": [
+    {
+      "type": "contentpic",
+      "content": {
+        "type": "prose",
+        "content": [
+          {
+            "type": "paragraph",
+            "attrs": {
+              "dir": "ltr"
+            },
+            "content": [
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Mr Desmond Lee"
+              },
+              {
+                "type": "text",
+                "text": " was elected a Member of Parliament (MP) for the West Coast-Jurong West Group Representation Constituency in May 2025. Prior to that, he served as an MP for West Coast GRC from July 2020 to May 2025, and for Jurong GRC from May 2011 to July 2020. During his time as a back-bencher, he also served as a member of the Government Parliamentary Committees for Culture, Community and Youth, Home Affairs and Law and Social and Family Development."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "dir": "ltr"
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "Mr Lee is currently the Minister for Education, and the Minister-in-Charge of Social Services Integration."
+              }
+            ]
+          }
+        ]
+      },
+      "imageAlt": "Portrait of Mr Desmond LEE, Minister for Education",
+      "imageSrc": "/images/the-cabinet/updated/desmond-lee.jpg"
+    },
+    {
+      "type": "prose",
+      "content": [
+        {
+          "type": "paragraph",
+          "attrs": {
+            "dir": "ltr"
+          },
+          "content": [
+            {
+              "type": "text",
+              "text": "Mr Lee was first appointed as Minister of State for National Development in September 2013. After his re-election as MP for Jurong GRC in September 2015, Mr Lee was appointed as Senior Minister of State for Home Affairs and National Development. In 2017, he was appointed Minister in the Prime Minister’s Office and Second Minister for Home Affairs and National Development. Later in the same year, Mr Lee was appointed the Minister for Social and Family Development and Second Minister in the Ministry of National Development. Following a Cabinet reshuffle in 2020, Mr Lee was appointed the Minister for National Development, and took on a newly created role of Minister-in-charge of Social Services Integration under the Ministry of Social and Family Development."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "attrs": {
+            "dir": "ltr"
+          },
+          "content": [
+            {
+              "type": "text",
+              "text": "Mr Lee began his career in the civil service as a Justices’ Law Clerk of the Supreme Court, providing legal research support. He then served as a Deputy Public Prosecutor and State Counsel in the Criminal Justice Division of the Attorney General’s Chambers. In 2005, Mr Lee was posted to the Ministry of Health to head its legal department."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "attrs": {
+            "dir": "ltr"
+          },
+          "content": [
+            {
+              "type": "text",
+              "text": "Before entering politics, Mr Lee also spent two years at the Legal Policy Division of the Ministry of Law. Subsequently, he joined Temasek as in-house counsel until his appointment to office at the Ministry of National Development (MND)."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "attrs": {
+            "dir": "ltr"
+          },
+          "content": [
+            {
+              "type": "text",
+              "text": "Mr Lee graduated in 2001 from the National University of Singapore with first class honours in law. He also holds a Masters degree in law from the University of Oxford."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "attrs": {
+            "dir": "ltr"
+          },
+          "content": [
+            {
+              "type": "text",
+              "text": "Mr Lee is married with three children."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "version": "0.1.0"
+}

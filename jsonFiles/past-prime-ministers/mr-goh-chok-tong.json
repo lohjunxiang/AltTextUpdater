@@ -1,0 +1,91 @@
+{
+  "page": {
+    "contentPageHeader": {
+      "summary": "1990 - 2004",
+      "showThumbnail": false
+    },
+    "title": "Mr GOH Chok Tong",
+    "permalink": "/pmo-speed-run/mr-goh-chok-tong",
+    "lastModified": "2025-09-09T14:59:27.860Z",
+    "image": {
+      "src": "/images/past-ministers/mr-goh-chok-tong.png",
+      "alt": "Portrait of Mr Goh Chok Tong, Singapore's Prime Minister from November 1990 to August 2004"
+    }
+  },
+  "layout": "content",
+  "content": [
+    {
+      "type": "contentpic",
+      "content": {
+        "type": "prose",
+        "content": [
+          {
+            "type": "paragraph",
+            "attrs": {
+              "dir": "ltr"
+            },
+            "content": [
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Mr Goh Chok Tong"
+              },
+              {
+                "type": "text",
+                "text": " was Singapore’s Prime Minister from November 1990 to August 2004."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "dir": "ltr"
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "Mr Goh graduated with First Class Honours in Economics from the University of Singapore in 1964 and joined the Administrative Service of the Singapore Government the same year. In 1967, he graduated with a Master of Arts in Development Economics from Williams College, USA. Mr Goh joined national shipping company Neptune Orient Lines in 1969, and was its Managing Director from 1973 to 1977."
+              }
+            ]
+          }
+        ]
+      },
+      "imageAlt": "Portrait of Mr Goh Chok Tong",
+      "imageSrc": "/images/past-ministers/mr-goh-chok-tong.png"
+    },
+    {
+      "type": "prose",
+      "content": [
+        {
+          "type": "paragraph",
+          "attrs": {
+            "dir": "ltr"
+          },
+          "content": [
+            {
+              "type": "text",
+              "text": "Mr Goh was first elected into Parliament in 1976, and served as a Member of Parliament in Marine Parade for 44 years before stepping down in 2020. He maintains his links with Marine Parade as Adviser Emeritus to Marine Parade grassroots organisations."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "attrs": {
+            "dir": "ltr"
+          },
+          "content": [
+            {
+              "type": "text",
+              "text": "Between 1979 and 1990, he served as Minister of Trade and Industry, Health and Defence. He was appointed Deputy Prime Minister in 1985, and succeeded Mr Lee Kuan Yew on 28 November 1990 as Singapore’s second Prime Minister. After serving as Prime Minister for 14 years, Mr Goh relinquished the premiership in August 2004 to pave the way for leadership renewal. Mr Goh remained in the Cabinet as Senior Minister and was Chairman of the Monetary Authority of Singapore (MAS) from August 2004 to May 2011. Upon leaving the Cabinet in May 2011, Mr Goh was given the honorary title of Emeritus Senior Minister, and was appointed Senior Advisor to MAS. In April 2017, Mr Goh was appointed Chairman of the Governing Board of the Lee Kuan Yew School of Public Policy at the National University of Singapore."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "version": "0.1.0"
+}

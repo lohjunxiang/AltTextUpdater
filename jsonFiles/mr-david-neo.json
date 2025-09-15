@@ -1,0 +1,103 @@
+{
+  "page": {
+    "contentPageHeader": {
+      "summary": "Acting Minister for Culture, Community and Youth",
+      "showThumbnail": false
+    },
+    "title": "Mr David NEO",
+    "permalink": "/pmo-speed-run/mr-david-neo",
+    "lastModified": "2025-09-09T13:14:23.544Z",
+    "image": {
+      "alt": "Portrait of Mr David NEO, Acting Minister for Culture, Community and Youth",
+      "src": "/images/the-cabinet/updated/mr-david-neo.jpg"
+    }
+  },
+  "layout": "content",
+  "content": [
+    {
+      "type": "contentpic",
+      "content": {
+        "type": "prose",
+        "content": [
+          {
+            "type": "paragraph",
+            "attrs": {
+              "dir": "ltr"
+            },
+            "content": [
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Mr David Neo"
+              },
+              {
+                "type": "text",
+                "text": " was appointed Ag Minister for Culture, Community and Youth, and Senior Minister of State for Education on 23 May 2025."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "dir": "ltr"
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "As the Ag Minister for Culture, Community and Youth, he chairs the National Integration Council, the Singapore Cares Steering Committee, the National Youth Council, and the National Steering Committee on Racial and Religious Harmony, driving efforts to build a caring, cohesive and confident society in Singapore."
+              }
+            ]
+          }
+        ]
+      },
+      "imageAlt": "Portrait of Mr David NEO, Acting Minister for Culture, Community and Youth",
+      "imageSrc": "/images/the-cabinet/updated/mr-david-neo.jpg"
+    },
+    {
+      "type": "prose",
+      "content": [
+        {
+          "type": "paragraph",
+          "attrs": {
+            "dir": "ltr"
+          },
+          "content": [
+            {
+              "type": "text",
+              "text": "At the Ministry of Education, he focuses on the development of our students beyond the classroom, to provide them with a balanced and well-rounded education, and develop them to their full potential as lifelong learners and good citizens."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "attrs": {
+            "dir": "ltr"
+          },
+          "content": [
+            {
+              "type": "text",
+              "text": "Before taking office, Mr Neo served for almost 30 years in public service, and was Deputy Secretary (Technology) in MINDEF, founding Group Chief of the Silver Generation Office, and was the first Commando Officer to be appointed as Chief of Army."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "attrs": {
+            "dir": "ltr"
+          },
+          "content": [
+            {
+              "type": "text",
+              "text": "Mr Neo obtained a Bachelor of Science in Electrical Engineering (Honours), Bachelor of Arts (Distinction) from University of Illinois, Urbana-Champaign and a Masters in Operations Research from Stanford University. He was also awarded the Lee Kuan Yew Postgraduate Scholarship and holds a Masters of Business Administration from the Massachusetts Institute of Technology, where he graduated as a Sloan Fellow."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "version": "0.1.0"
+}

@@ -1,0 +1,82 @@
+{
+  "page": {
+    "contentPageHeader": {
+      "summary": "Acting Minister for Transport",
+      "showThumbnail": false
+    },
+    "title": "Mr Jeffrey SIOW",
+    "permalink": "/pmo-speed-run/mr-jeffrey-siow",
+    "lastModified": "2025-09-09T13:12:32.836Z",
+    "image": {
+      "alt": "Portrait of Mr Jeffrey SIOW, Acting Minister for Transport",
+      "src": "/images/the-cabinet/updated/mr-jeffrey.jpg"
+    }
+  },
+  "layout": "content",
+  "content": [
+    {
+      "type": "contentpic",
+      "content": {
+        "type": "prose",
+        "content": [
+          {
+            "type": "paragraph",
+            "attrs": {
+              "dir": "ltr"
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "Mr Jeffrey Siow was appointed Acting Minister for Transport and Senior Minister of State for Finance on 23 May 2025. He was elected as a Member of Parliament for the Chua Chu Kang Group Representation Constituency in 2025."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "dir": "ltr"
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "Before taking office, Mr Siow was Second Permanent Secretary at both the Ministry of Manpower and the Ministry of Trade and Industry, where he led national efforts to grow Singapore’s economy, and to develop a productive workforce and progressive workplaces to benefit Singaporeans."
+              }
+            ]
+          }
+        ]
+      },
+      "imageAlt": "Portrait of Mr Jeffrey SIOW, Acting Minister for Transport",
+      "imageSrc": "/images/the-cabinet/updated/mr-jeffrey.jpg"
+    },
+    {
+      "type": "prose",
+      "content": [
+        {
+          "type": "paragraph",
+          "attrs": {
+            "dir": "ltr"
+          },
+          "content": [
+            {
+              "type": "text",
+              "text": "From 2021 to 2023, Mr Siow was the first Managing Director and Chief Operating Officer of Enterprise Singapore, where he was responsible for growing and transforming local businesses and industries. He was the Principal Private Secretary to Prime Minister Lee Hsien Loong from 2017 to 2021. Prior to that, Mr Siow held key government appointments at the Ministries of Transport, Education, and Manpower.   "
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "attrs": {
+            "dir": "ltr"
+          },
+          "content": [
+            {
+              "type": "text",
+              "text": "Mr Siow graduated from the Massachusetts Institute of Technology with an MBA. He also holds a BA in Economics & Government and a BSc in Urban & Regional Studies from Cornell University."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "version": "0.1.0"
+}
