@@ -572,6 +572,7 @@ def update_alts_rel(dry_run: bool = False, backup: bool = False, rewrite_src: bo
         "details": details,
     }
 
+
     # Save reports
     reports_dir = script_dir / "reports"
     reports_dir.mkdir(exist_ok=True)
