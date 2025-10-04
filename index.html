@@ -1,160 +1,486 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Alt Text Updater — Simple Mode</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./assets/style.css">
-  <script defer src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
-  <script defer src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
-  <script defer src="https://cdn.jsdelivr.net/npm/file-saver@2.0.5/dist/FileSaver.min.js"></script>
-  <script defer src="./assets/app.js"></script>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Alt Text Updater</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+/* =========================
+   DESIGN TOKENS
+   ========================= */
+:root{
+  /* Brand & system colors */
+  --color-primary: #2B5FCE;          /* Brand blue */
+  --color-primary-700: #234faf;
+  --color-primary-300: #6f94e0;
+  --color-bg: #0B0D12;
+  --color-panel: #12151D;
+  --color-panel-2: #0e1118;
+  --color-border: #262a35;
+  --color-text: #F4F6FA;
+  --color-text-weak: #C7CCDA;
+  --color-muted: #9AA3B2;
+  --color-success: #1fbf75;
+  --color-warn: #ffbb33;
+  --color-error: #ff5a73;
+  --color-focus: #9db9ff;            /* visible ring on brand */
+
+  /* Type ramp (Desktop) */
+  --font-sans: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  --fs-section: 36px;  --lh-section: 120%; --ls-section: -0.022em; --fw-section: 600;
+  --fs-lg: 24px;       --lh-lg: 120%;      --ls-lg: -0.022em;       --fw-lg: 600;
+  --fs-md: 20px;       --lh-md: 130%;                             --fw-md: 600;
+  --fs-sm: 18px;       --lh-sm: 130%;                             --fw-sm: 600;
+  --fs-p: 16px;        --lh-p: 150%;                              --fw-p: 400;
+
+  /* Spacing scale */
+  --s-1: 4px; --s-2: 8px; --s-3: 12px; --s-4: 16px; --s-5: 24px; --s-6: 32px;
+
+  /* Shape & depth */
+  --radius-sm: 8px; --radius: 12px; --radius-lg: 16px;
+  --shadow: 0 10px 24px rgba(0,0,0,.25);
+}
+
+/* =========================
+   BASE
+   ========================= */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:var(--font-sans);
+  background:var(--color-bg);
+  color:var(--color-text);
+  line-height:var(--lh-p);
+  font-size:var(--fs-p);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+a{color:var(--color-primary); text-decoration:none}
+a:hover{text-decoration:underline}
+h1,h2,h3{margin:0 0 var(--s-4)}
+h1{font-size:var(--fs-section); line-height:var(--lh-section); letter-spacing:var(--ls-section); font-weight:var(--fw-section)}
+h2{font-size:var(--fs-lg); line-height:var(--lh-lg); letter-spacing:var(--ls-lg); font-weight:var(--fw-lg)}
+h3{font-size:var(--fs-sm); line-height:var(--lh-sm); font-weight:var(--fw-sm)}
+p{margin:0 0 var(--s-4); color:var(--color-text-weak)}
+small{color:var(--color-muted)}
+
+.container{
+  display:grid;
+  grid-template-columns: 260px 1fr 320px;
+  gap: var(--s-5);
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: var(--s-6);
+}
+
+/* =========================
+   STEPPER (LEFT NAV)
+   ========================= */
+.stepper{
+  position:sticky; top:var(--s-6); align-self:start;
+  background:var(--color-panel);
+  border:1px solid var(--color-border);
+  border-radius:var(--radius);
+  padding:var(--s-4);
+}
+.step{
+  display:flex; align-items:center; gap:var(--s-3);
+  padding: var(--s-3);
+  border-radius: var(--radius-sm);
+  color:var(--color-text);
+}
+.step + .step{margin-top:var(--s-2)}
+.step__num{
+  inline-size: 28px; block-size: 28px; border-radius:999px;
+  display:grid; place-items:center;
+  background:#0b1326; border:1px solid var(--color-border); color:var(--color-text-weak);
+  font-weight:600;
+}
+.step[aria-current="step"]{
+  background:linear-gradient(0deg, rgba(43,95,206,.20), rgba(43,95,206,.20));
+  border:1px solid var(--color-primary-300);
+}
+.step[aria-current="step"] .step__num{ background:var(--color-primary); color:#fff; border-color:transparent }
+
+/* =========================
+   CARDS & PANELS
+   ========================= */
+.card{
+  background:var(--color-panel);
+  border:1px solid var(--color-border);
+  border-radius:var(--radius-lg);
+  padding:var(--s-5);
+  box-shadow:var(--shadow);
+}
+.card--tight{padding:var(--s-4)}
+.card + .card{margin-top:var(--s-5)}
+
+/* =========================
+   HERO / INTRO
+   ========================= */
+.hero p{max-width:64ch}
+
+/* =========================
+   INPUTS, DROPZONES & TOGGLES
+   ========================= */
+label, .label{font-weight:600}
+.input, .select {
+  width:100%;
+  background:var(--color-panel-2);
+  border:1px solid var(--color-border);
+  border-radius:var(--radius-sm);
+  padding: var(--s-3) var(--s-4);
+  color:var(--color-text);
+}
+.input:focus-visible, .select:focus-visible, .btn:focus-visible, .dropzone:focus-visible, .toggle input:focus-visible + .toggle__visual{
+  outline: 3px solid var(--color-focus);
+  outline-offset: 2px;
+}
+.dropzones{
+  display:grid; grid-template-columns: 1fr 1fr; gap:var(--s-5);
+}
+.dropzone{
+  position:relative; display:flex; gap:var(--s-4); align-items:center;
+  min-height: 132px; padding: var(--s-5);
+  border-radius: var(--radius);
+  background:var(--color-panel-2);
+  border:2px dashed var(--color-border);
+  cursor:pointer;
+}
+.dropzone:hover{ border-color: var(--color-primary-300) }
+.dropzone__icon{
+  inline-size:56px; block-size:56px; border-radius:12px;
+  display:grid; place-items:center;
+  background:#0b1326; border:1px solid var(--color-border);
+}
+.dropzone__text strong{display:block; font-size:var(--fs-md); line-height:var(--lh-md)}
+.dropzone small{display:block}
+.dropzone input[type="file"]{ position:absolute; inset:0; opacity:0; cursor:pointer }
+
+.toggle{display:flex; align-items:center; gap:var(--s-3)}
+.toggle__visual{
+  inline-size: 46px; block-size:26px; border-radius:999px; position:relative;
+  background:#121929; border:1px solid var(--color-border);
+}
+.toggle__visual::after{
+  content:""; position:absolute; inset: 2px auto 2px 2px;
+  inline-size:22px; block-size:22px; border-radius:999px;
+  background:#fff; transition: transform .18s ease;
+}
+.toggle input:checked + .toggle__visual{ background: var(--color-primary-300) }
+.toggle input:checked + .toggle__visual::after{ transform: translateX(18px); background:#0b0d12 }
+
+/* Inline validation */
+.help{margin-top:var(--s-2)}
+.help--error{color:var(--color-error)}
+.help--ok{color:var(--color-success)}
+
+/* =========================
+   TABLE + TOOLBAR
+   ========================= */
+.table{
+  border:1px solid var(--color-border);
+  border-radius:var(--radius);
+  overflow:hidden;
+}
+.table__toolbar{
+  display:flex; gap:var(--s-3); align-items:center; justify-content:space-between;
+  padding: var(--s-3) var(--s-4);
+  background:var(--color-panel-2);
+  border-bottom:1px solid var(--color-border);
+  position:sticky; top:0; z-index:1;
+}
+.table__filters{display:flex; gap:var(--s-3); align-items:center}
+.kbd{display:inline-grid; place-items:center; min-inline-size:28px; padding-inline:6px; border-radius:6px;
+  background:#0b1326; border:1px solid var(--color-border); font-size:12px; color:var(--color-text-weak);
+}
+.table table{width:100%; border-collapse:collapse; font-size:14px}
+.table th, .table td{padding:10px 12px; border-top:1px solid var(--color-border)}
+.table th{position:sticky; top:48px; background:var(--color-panel); text-align:left; color:var(--color-muted); font-weight:600}
+.table td{color:var(--color-text-weak)}
+.badge{display:inline-grid; place-items:center; padding:2px 8px; border-radius:999px; border:1px solid var(--color-border); font-size:12px}
+.badge--ok{background:rgba(31,191,117,.1); color:#a7f3d0; border-color:rgba(31,191,117,.35)}
+.badge--muted{background:#10131b; color:#c7ccda}
+
+/* =========================
+   RIGHT RAIL
+   ========================= */
+.stats{
+  display:grid; grid-template-columns: repeat(3,1fr); gap:var(--s-3);
+}
+.stat{
+  text-align:center; padding:var(--s-4);
+  border:1px solid var(--color-border); border-radius:var(--radius);
+  background:var(--color-panel-2);
+}
+.stat strong{display:block; font-size:28px; line-height:110%}
+.stat small{display:block}
+
+/* =========================
+   ACTION BAR (FIXED FOOTER)
+   ========================= */
+.actionbar{
+  position:sticky; bottom:0; inset-inline:0;
+  background: linear-gradient(180deg, rgba(11,13,18,0), rgba(11,13,18,.9) 40%);
+  padding: var(--s-5) var(--s-6);
+  border-top:1px solid var(--color-border);
+}
+.actions{
+  max-width:1440px; margin:0 auto; display:flex; gap:var(--s-3); justify-content:flex-end;
+}
+.btn{
+  appearance:none; border-radius:var(--radius-sm);
+  border:1px solid var(--color-border);
+  background:var(--color-panel-2); color:var(--color-text);
+  padding:10px 14px; font-weight:600; cursor:pointer;
+}
+.btn:hover{ background:#151a25 }
+.btn[disabled]{opacity:.55; cursor:not-allowed}
+.btn--primary{ background:var(--color-primary); border-color:transparent; color:#fff }
+.btn--primary:hover{ background:var(--color-primary-700) }
+.btn--danger{ background:#281419; border-color:#3b2027; color:#ffd6dd }
+.btn--ghost{ background:transparent }
+
+/* =========================
+   PROGRESS, ALERTS, TOASTS
+   ========================= */
+.progress{
+  display:flex; align-items:center; gap:var(--s-3);
+  background:var(--color-panel-2);
+  border:1px solid var(--color-border);
+  border-radius:var(--radius);
+  padding: var(--s-3) var(--s-4);
+}
+.progress__bar{flex:1; inline-size:100%; block-size:10px; background:#0d1220; border:1px solid var(--color-border); border-radius:999px; overflow:hidden}
+.progress__bar > span{display:block; block-size:100%; inline-size: 22%; background:var(--color-primary)}
+
+.alert{
+  border-radius:var(--radius); padding: var(--s-3) var(--s-4);
+  border:1px solid var(--color-border); background:#201317; color:#ffd6dd;
+}
+.banner{
+  border-radius:var(--radius); padding: var(--s-3) var(--s-4);
+  border:1px solid var(--color-border); background:#12151d;
+}
+
+.toaststack{ position:fixed; right:var(--s-6); bottom: calc(var(--s-6) + 64px); display:grid; gap:var(--s-3); z-index:9999 }
+.toast{
+  background:#111827; border:1px solid var(--color-border); color:var(--color-text);
+  padding:10px 14px; border-radius:var(--radius-sm); box-shadow:var(--shadow)
+}
+
+/* =========================
+   ACCESSIBILITY EXTRAS
+   ========================= */
+.sr-only{ position:absolute !important; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0 }
+kbd.kbd{font-family: ui-monospace, Menlo, Consolas, monospace;}
+
+/* Responsive polish for smaller desktops */
+@media (max-width: 1200px){
+  .container{ grid-template-columns: 240px 1fr 300px }
+}
+@media (max-width: 1024px){
+  .container{ grid-template-columns: 1fr; }
+  .right, .left{order:2}
+  .main{order:1}
+  .dropzones{ grid-template-columns: 1fr; }
+  .stats{ grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+</style>
 </head>
+
 <body>
-<div class="app">
-  <aside class="sidebar">
-    <div class="brand">
-      <div class="mark">ATU</div>
-      <div class="title">Alt Text Updater</div>
-    </div>
-    <nav class="menu">
-      <div class="menu-item active" data-step="1"><span class="dot">1</span> Upload CSV</div>
-      <div class="menu-item" data-step="2"><span class="dot">2</span> Choose JSON folder</div>
-      <div class="menu-item" data-step="3"><span class="dot">3</span> Run preview</div>
-      <div class="menu-item" data-step="4"><span class="dot">4</span> Apply & download</div>
-    </nav>
-    <div class="plan">
-      <div class="plan-title">Safe Mode</div>
-      <div class="plan-text">Preview only. Your files are never changed.</div>
-    </div>
-    <div class="foot">v1.2 • Built for non‑coders</div>
-  </aside>
+<div class="container" role="application" aria-label="Alt Text Updater">
 
+  <!-- LEFT: STEPPER -->
+  <nav class="left stepper" aria-label="Steps">
+    <div class="step" aria-current="step"><span class="step__num">1</span> Upload CSV</div>
+    <div class="step"><span class="step__num">2</span> Choose JSON folder</div>
+    <div class="step"><span class="step__num">3</span> Run preview</div>
+    <div class="step"><span class="step__num">4</span> Apply &amp; download</div>
+  </nav>
+
+  <!-- MAIN CONTENT -->
   <main class="main">
-    <header class="top">
-      <div class="search">
-        <input id="filterInput" type="text" placeholder="Search results by file, link, or alt…">
-        <button id="btnClear" class="btn ghost small">Clear</button>
-      </div>
-      <div class="top-actions">
-        <button id="btnPreview" class="btn primary" disabled>Run preview</button>
-        <button id="btnApply" class="btn success" disabled>Apply & download</button>
-        <button id="btnReports" class="btn" disabled>Download reports</button>
-        <button id="btnReset" class="btn ghost">Reset</button>
-      </div>
-    </header>
 
-    <section class="hero card">
-      <div class="hero-left">
-        <h1>No coding needed.</h1>
-        <p class="muted">Upload your <b>CSV</b>, choose your <b>jsonFiles</b> folder, then preview and download updated files. It’s safe and fully client‑side.</p>
-        <ul class="steps">
-          <li><b>Step 1:</b> Upload CSV (2 columns: <code>path,alt</code> • or 3 columns: <code>new_rel,alt,orig_path</code>)</li>
-          <li><b>Step 2:</b> Pick your <code>jsonFiles/</code> folder</li>
-          <li><b>Step 3:</b> Click <b>Run preview</b> to see proposed changes</li>
-          <li><b>Step 4:</b> Click <b>Apply & download</b> to get a ZIP with updated files</li>
-        </ul>
-        <div class="toggles">
-          <label class="toggle">
-            <input id="toggleRewrite" type="checkbox">
-            <span></span>
-            <div>Also update image <code>src</code> when your CSV has 3 columns</div>
-          </label>
-          <label class="toggle">
-            <input id="toggleBackup" type="checkbox" checked>
-            <span></span>
-            <div>Include a backup of originals in the ZIP</div>
-          </label>
-        </div>
-      </div>
-      <div class="hero-right">
-        <div class="uploader">
-          <div class="uploader-block">
-            <div class="label">CSV</div>
-            <label class="drop" id="csvDrop">
-              <input id="csvInput" type="file" accept=".csv,text/csv" hidden>
-              <div class="drop-inner">
-                <div class="icon">📄</div>
-                <div class="text">
-                  <strong id="csvName">Drop or click to upload CSV</strong>
-                  <div class="hint">We’ll read it in your browser.</div>
-                </div>
-              </div>
-            </label>
-            <div class="mini-stats">
-              <div><span class="k">Rows</span><span id="statRows" class="v">0</span></div>
-              <div><span class="k">Mode</span><span id="statMode" class="v">—</span></div>
-              <div><span class="k">Alts</span><span id="statAlts" class="v">0</span></div>
-            </div>
-          </div>
+    <!-- Intro -->
+    <section class="card hero" aria-labelledby="hero-h">
+      <h1 id="hero-h">No coding needed.</h1>
+      <p>Upload your <strong>CSV</strong>, pick your <strong>jsonFiles</strong> folder, then preview and download updated files. It’s safe, fast, and runs in your browser.</p>
+    </section>
 
-          <div class="uploader-block">
-            <div class="label">jsonFiles folder</div>
-            <label class="drop">
-              <input id="folderInput" type="file" webkitdirectory directory multiple hidden>
-              <div class="drop-inner">
-                <div class="icon">📁</div>
-                <div class="text">
-                  <strong id="folderName">Pick your jsonFiles/ directory</strong>
-                  <div class="hint">Only .json files are read.</div>
-                </div>
-              </div>
-            </label>
-            <div class="mini-stats">
-              <div><span class="k">Files</span><span id="statFiles" class="v">0</span></div>
-              <div><span class="k">Scanned</span><span id="statScanned" class="v">0%</span></div>
-              <div><span class="k">Updated</span><span id="statUpdated" class="v">0</span></div>
-            </div>
-            <div id="progress" class="progress hidden">
-              <div class="bar"><div id="bar" style="width:0%"></div></div>
-              <div id="pct" class="pct">0%</div>
-            </div>
+    <!-- Dropzones + toggles -->
+    <section class="card">
+      <div class="dropzones" aria-describedby="drop-help">
+        <!-- CSV -->
+        <label for="csvInput" class="dropzone" id="csvZone" tabindex="0">
+          <span class="dropzone__icon" aria-hidden="true">📄</span>
+          <div class="dropzone__text">
+            <strong>Drag &amp; drop your CSV or click to browse</strong>
+            <small>Columns: <code>path,alt[,new_rel]</code>. <a href="#" id="sampleCsv">Download sample CSV</a></small>
           </div>
-        </div>
+          <input id="csvInput" type="file" accept=".csv,text/csv" aria-describedby="csvHelp" />
+        </label>
+
+        <!-- Folder -->
+        <label for="dirInput" class="dropzone" id="dirZone" tabindex="0">
+          <span class="dropzone__icon" aria-hidden="true">📁</span>
+          <div class="dropzone__text">
+            <strong>Pick your <code>jsonFiles/</code> directory</strong>
+            <small>Only <code>.json</code> files are read.</small>
+          </div>
+          <input id="dirInput" type="file" webkitdirectory directory aria-describedby="dirHelp" />
+        </label>
+      </div>
+
+      <div class="help" id="drop-help"><small>Preview only. Your files are never modified until you choose “Apply &amp; download”.</small></div>
+
+      <!-- Inline validation examples (toggle these via JS) -->
+      <p id="csvHelp" class="help help--error sr-only">Your CSV needs columns <code>path,alt[,new_rel]</code>. We detected: <code>path,alt_text</code>. See sample.</p>
+      <p id="dirHelp" class="help help--error sr-only">We couldn’t access <code>jsonFiles/</code>. Check permissions and try again.</p>
+
+      <hr style="border:none;border-top:1px solid var(--color-border); margin: var(--s-5) 0">
+
+      <!-- Toggles -->
+      <div class="grid" style="display:grid; gap:var(--s-4);">
+        <label class="toggle">
+          <input id="tgRewrite" type="checkbox" />
+          <span class="toggle__visual" aria-hidden="true"></span>
+          <span>Also update image <code>src</code> when CSV has 3 columns</span>
+        </label>
+
+        <label class="toggle">
+          <input id="tgBackup" type="checkbox" checked />
+          <span class="toggle__visual" aria-hidden="true"></span>
+          <span>Include backup of originals in ZIP</span>
+        </label>
       </div>
     </section>
 
-    <section class="dashboard">
-      <div class="col col-main">
-        <div class="card">
-          <div class="card-head">
-            <div class="card-title">Preview results</div>
-            <div class="muted" id="resultCount">Showing 0 of 0</div>
-          </div>
-          <div class="table">
-            <div class="thead">
-              <div>JSON file</div>
-              <div>Old link</div>
-              <div>Rewritten</div>
-              <div>New alt</div>
+    <!-- Preview toolbar + table -->
+    <section class="card" aria-label="Preview results">
+      <div class="table">
+        <!-- Toolbar -->
+        <div class="table__toolbar" role="region" aria-label="Results controls">
+          <div class="table__filters">
+            <label class="sr-only" for="search">Search</label>
+            <input id="search" class="input" type="search" inputmode="search" placeholder="Search by file, link, or alt…" style="width:340px" />
+            <div role="group" aria-label="Filters" class="table__filters">
+              <label class="toggle" style="gap:6px">
+                <input id="fltChanged" type="checkbox" aria-label="Changed" />
+                <span class="toggle__visual" aria-hidden="true" style="inline-size:40px;block-size:22px"></span>
+                <span>Changed</span>
+              </label>
+              <label class="toggle" style="gap:6px">
+                <input id="fltUnchanged" type="checkbox" aria-label="Unchanged" />
+                <span class="toggle__visual" aria-hidden="true" style="inline-size:40px;block-size:22px"></span>
+                <span>Unchanged</span>
+              </label>
+              <label class="toggle" style="gap:6px">
+                <input id="fltErrors" type="checkbox" aria-label="Errors" />
+                <span class="toggle__visual" aria-hidden="true" style="inline-size:40px;block-size:22px"></span>
+                <span>Errors</span>
+              </label>
             </div>
-            <div id="tbody" class="tbody"></div>
+          </div>
+          <div class="table__filters">
+            <label for="perPage" class="sr-only">Rows per page</label>
+            <select id="perPage" class="select" aria-label="Rows per page">
+              <option>25 rows</option>
+              <option selected>50 rows</option>
+              <option>100 rows</option>
+            </select>
+            <span aria-live="polite" class="kbd" id="resultsCount">0 results</span>
           </div>
         </div>
-      </div>
-      <div class="col col-side">
-        <div class="card">
-          <div class="card-head"><div class="card-title">At a glance</div></div>
-          <div class="stats">
-            <div class="stat"><div class="k">Scanned</div><div id="ovScanned" class="v">0</div></div>
-            <div class="stat"><div class="k">Changed files</div><div id="ovChanged" class="v">0</div></div>
-            <div class="stat"><div class="k">Updates</div><div id="ovUpdates" class="v">0</div></div>
-          </div>
-          <div class="help">
-            <div class="help-title">What will change?</div>
-            <p>We look for images in your JSON and add descriptive alt text. If you enable “Update <code>src</code>”, we’ll also swap the link when your CSV provides a new path.</p>
-            <div class="help-title">How do we match images?</div>
-            <p>Exact <code>orig_path</code> → original file name → path → file name → a simplified “slug” of the name.</p>
-            <div class="help-title">Why is this safe?</div>
-            <p>Everything runs in your browser. Use the ZIP to download changes—your originals remain untouched.</p>
-          </div>
+
+        <!-- Empty state (replace with table rows after preview) -->
+        <div class="banner" id="emptyState" role="note" aria-live="polite">
+          No results yet. Run preview to see proposed changes.
         </div>
+
+        <table aria-describedby="resultsNote" id="resultsTable">
+          <thead>
+            <tr>
+              <th scope="col">JSON file</th>
+              <th scope="col">Old link</th>
+              <th scope="col">Rewritten</th>
+              <th scope="col">New alt</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Example row (remove once wired) -->
+            <!-- <tr>
+              <td>content/page-01.json</td>
+              <td>/images/hero-01.png</td>
+              <td><span class="badge badge--ok">Yes</span></td>
+              <td>Smiling hikers on a ridge at sunset</td>
+            </tr> -->
+          </tbody>
+        </table>
+        <p id="resultsNote" class="sr-only">Table shows the images found in your JSON, whether a source link will be rewritten, and the new alt text.</p>
       </div>
     </section>
+
+    <!-- Loading + phases (show during preview) -->
+    <section class="progress card card--tight sr-only" id="loadingBox" aria-live="assertive" role="status">
+      <div class="progress__bar" aria-hidden="true"><span style="width:0%"></span></div>
+      <div><strong id="progressCount">Scanning 0 / 0 files…</strong><br><small id="progressPhase">Waiting…</small></div>
+    </section>
+
+    <!-- Error banner (partial failures) -->
+    <section class="alert sr-only" id="applyErrors" role="alert">
+      Some files failed to update. <a href="#" id="dlErrorReport">Download error report (CSV)</a>.
+    </section>
+
   </main>
+
+  <!-- RIGHT RAIL -->
+  <aside class="right">
+    <section class="card">
+      <h2>At a glance</h2>
+      <div class="stats" role="group" aria-label="Statistics">
+        <div class="stat"><strong id="statScanned">0</strong><small>Scanned</small></div>
+        <div class="stat"><strong id="statChanged">0</strong><small>Changed files</small></div>
+        <div class="stat"><strong id="statUpdates">0</strong><small>Updates</small></div>
+      </div>
+    </section>
+    <section class="card">
+      <h2>What will change?</h2>
+      <p>We look for images in your JSON and add descriptive alt text. If you enable <strong>Update <code>src</code></strong>, we’ll also swap the link when your CSV provides a new path.</p>
+      <h3 style="margin-top:var(--s-4)">How do we match?</h3>
+      <p>Using your CSV, we match by path or file name. If a third column is present, we can rewrite <code>src</code> as well.</p>
+    </section>
+  </aside>
 </div>
+
+<!-- ACTION BAR -->
+<footer class="actionbar" role="region" aria-label="Actions">
+  <div class="actions">
+    <button class="btn btn--danger" id="btnReset" aria-label="Reset">Reset</button>
+    <button class="btn" id="btnReports" disabled aria-label="Download reports">Download reports</button>
+    <button class="btn btn--primary" id="btnPreview" disabled aria-label="Run preview">Run preview</button>
+    <button class="btn btn--primary" id="btnApply" disabled aria-label="Apply and download">Apply &amp; download</button>
+  </div>
+</footer>
+
+<!-- Live regions for toasts & progress -->
+<div class="toaststack" aria-live="polite" aria-atomic="true">
+  <!-- Example toast (hide/show via JS) -->
+  <!-- <div class="toast">Preview ready.</div> -->
+</div>
+
+<!-- JS STUBS ONLY (attach your real logic to these IDs) -->
+<script>
+  // Hint: toggle .sr-only on #loadingBox, #applyErrors, #csvHelp, #dirHelp, #emptyState
+  // Update aria-live content using textContent on #progressCount, #progressPhase, and #resultsCount.
+  // Enable buttons (#btnPreview, #btnApply, #btnReports) once prerequisites are met.
+  // Keep keyboard focus visible; use .focus() on Run preview after CSV+folder are selected.
+</script>
 </body>
 </html>
