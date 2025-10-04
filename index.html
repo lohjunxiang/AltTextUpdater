@@ -3,164 +3,158 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Alt Text Updater — Web App</title>
+  <title>Alt Text Updater — Simple Mode</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./assets/styles.css">
-  <!-- Vendor libs (CDN) -->
+  <link rel="stylesheet" href="./assets/style.css">
   <script defer src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/file-saver@2.0.5/dist/FileSaver.min.js"></script>
   <script defer src="./assets/app.js"></script>
 </head>
 <body>
-  <header class="topbar">
-    <div class="wrap">
-      <div class="brand">
-        <div class="logo">ATU</div>
-        <h1>Alt Text Updater</h1>
-        <span class="badge">Client-side preview • No files are modified</span>
-      </div>
-      <div class="actions">
-        <button id="btnPreview" class="btn primary" disabled>▶ Run Preview</button>
-        <button id="btnDownloadReports" class="btn" disabled>⬇ Download Reports</button>
-        <button id="btnReset" class="btn">↻ Reset</button>
-      </div>
+<div class="app">
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="mark">ATU</div>
+      <div class="title">Alt Text Updater</div>
     </div>
-  </header>
+    <nav class="menu">
+      <div class="menu-item active" data-step="1"><span class="dot">1</span> Upload CSV</div>
+      <div class="menu-item" data-step="2"><span class="dot">2</span> Choose JSON folder</div>
+      <div class="menu-item" data-step="3"><span class="dot">3</span> Run preview</div>
+      <div class="menu-item" data-step="4"><span class="dot">4</span> Apply & download</div>
+    </nav>
+    <div class="plan">
+      <div class="plan-title">Safe Mode</div>
+      <div class="plan-text">Preview only. Your files are never changed.</div>
+    </div>
+    <div class="foot">v1.2 • Built for non‑coders</div>
+  </aside>
 
-  <main class="wrap">
-    <section class="grid three">
-      <div class="card">
-        <div class="card-head">
-          <h2>CSV</h2>
-          <span id="csvName" class="muted">No file</span>
-        </div>
-        <div class="space">
-          <label class="dropzone">
-            <input id="csvInput" type="file" accept=".csv,text/csv" hidden>
-            <div class="icon">📄</div>
-            <div>
-              <div class="text">Drop or click to choose <span class="hl">alt-text-output.csv</span></div>
-              <div class="hint">2‑col: path, alt • 3‑col: new_rel, alt, orig_path</div>
-            </div>
-          </label>
-
-          <div class="stats">
-            <div class="stat"><div class="stat-k">Rows</div><div id="statRows" class="stat-v">0</div></div>
-            <div class="stat"><div class="stat-k">Mode</div><div id="statMode" class="stat-v">—</div></div>
-            <div class="stat"><div class="stat-k">Alts</div><div id="statAlts" class="stat-v">0</div></div>
-          </div>
-        </div>
+  <main class="main">
+    <header class="top">
+      <div class="search">
+        <input id="filterInput" type="text" placeholder="Search results by file, link, or alt…">
+        <button id="btnClear" class="btn ghost small">Clear</button>
       </div>
-
-      <div class="card">
-        <div class="card-head">
-          <h2>jsonFiles</h2>
-          <span id="folderName" class="muted">No folder</span>
-        </div>
-        <div class="space">
-          <label class="btn ghost">
-            <input id="folderInput" type="file" webkitdirectory directory multiple hidden>
-            📁 Select folder
-          </label>
-
-          <div class="stats">
-            <div class="stat"><div class="stat-k">Files</div><div id="statFiles" class="stat-v">0</div></div>
-            <div class="stat"><div class="stat-k">Scanned</div><div id="statScanned" class="stat-v">0</div></div>
-            <div class="stat"><div class="stat-k">Updated</div><div id="statUpdated" class="stat-v">0</div></div>
-          </div>
-
-          <div id="progressWrap" class="progress hidden">
-            <div class="progress-head">
-              <span>Processing</span>
-              <span id="progressPct">0%</span>
-            </div>
-            <div class="bar"><div id="progressBar" class="bar-inner" style="width:0%"></div></div>
-          </div>
-          <div class="small muted">Large folders are OK. Only <span class="hl">.json</span> files are read.</div>
-        </div>
+      <div class="top-actions">
+        <button id="btnPreview" class="btn primary" disabled>Run preview</button>
+        <button id="btnApply" class="btn success" disabled>Apply & download</button>
+        <button id="btnReports" class="btn" disabled>Download reports</button>
+        <button id="btnReset" class="btn ghost">Reset</button>
       </div>
+    </header>
 
-      <div class="card">
-        <div class="card-head"><h2>Run Settings</h2></div>
-        <div class="space">
-          <label class="toggle">
-            <input id="toggleBackup" type="checkbox" checked>
-            <span></span>
-            <div>Backup originals in download (.zip)</div>
-          </label>
+    <section class="hero card">
+      <div class="hero-left">
+        <h1>No coding needed.</h1>
+        <p class="muted">Upload your <b>CSV</b>, choose your <b>jsonFiles</b> folder, then preview and download updated files. It’s safe and fully client‑side.</p>
+        <ul class="steps">
+          <li><b>Step 1:</b> Upload CSV (2 columns: <code>path,alt</code> • or 3 columns: <code>new_rel,alt,orig_path</code>)</li>
+          <li><b>Step 2:</b> Pick your <code>jsonFiles/</code> folder</li>
+          <li><b>Step 3:</b> Click <b>Run preview</b> to see proposed changes</li>
+          <li><b>Step 4:</b> Click <b>Apply & download</b> to get a ZIP with updated files</li>
+        </ul>
+        <div class="toggles">
           <label class="toggle">
             <input id="toggleRewrite" type="checkbox">
             <span></span>
-            <div>Rewrite <code>src</code> when CSV has mapping (3‑col)</div>
+            <div>Also update image <code>src</code> when your CSV has 3 columns</div>
           </label>
+          <label class="toggle">
+            <input id="toggleBackup" type="checkbox" checked>
+            <span></span>
+            <div>Include a backup of originals in the ZIP</div>
+          </label>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="uploader">
+          <div class="uploader-block">
+            <div class="label">CSV</div>
+            <label class="drop" id="csvDrop">
+              <input id="csvInput" type="file" accept=".csv,text/csv" hidden>
+              <div class="drop-inner">
+                <div class="icon">📄</div>
+                <div class="text">
+                  <strong id="csvName">Drop or click to upload CSV</strong>
+                  <div class="hint">We’ll read it in your browser.</div>
+                </div>
+              </div>
+            </label>
+            <div class="mini-stats">
+              <div><span class="k">Rows</span><span id="statRows" class="v">0</span></div>
+              <div><span class="k">Mode</span><span id="statMode" class="v">—</span></div>
+              <div><span class="k">Alts</span><span id="statAlts" class="v">0</span></div>
+            </div>
+          </div>
 
-          <div class="cmd">
-            <div class="cmd-head">Command (CLI mode)</div>
-            <pre id="cliPreview">ALT_DRY_RUN=1 ALT_BACKUP=1 ALT_REWRITE_SRC=0 python3 update_alt_text_from_csv.py</pre>
+          <div class="uploader-block">
+            <div class="label">jsonFiles folder</div>
+            <label class="drop">
+              <input id="folderInput" type="file" webkitdirectory directory multiple hidden>
+              <div class="drop-inner">
+                <div class="icon">📁</div>
+                <div class="text">
+                  <strong id="folderName">Pick your jsonFiles/ directory</strong>
+                  <div class="hint">Only .json files are read.</div>
+                </div>
+              </div>
+            </label>
+            <div class="mini-stats">
+              <div><span class="k">Files</span><span id="statFiles" class="v">0</span></div>
+              <div><span class="k">Scanned</span><span id="statScanned" class="v">0%</span></div>
+              <div><span class="k">Updated</span><span id="statUpdated" class="v">0</span></div>
+            </div>
+            <div id="progress" class="progress hidden">
+              <div class="bar"><div id="bar" style="width:0%"></div></div>
+              <div id="pct" class="pct">0%</div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="grid two">
-      <div class="card">
-        <div class="card-head">
-          <h2>Preview Results</h2>
-          <span id="resultCount" class="muted">Showing 0 of 0</span>
-        </div>
-        <div class="space">
-          <div class="filter">
-            <input id="filterInput" type="text" placeholder="Filter by file, src, or new alt…"/>
-            <button id="btnClear" class="btn ghost small">Clear</button>
+    <section class="dashboard">
+      <div class="col col-main">
+        <div class="card">
+          <div class="card-head">
+            <div class="card-title">Preview results</div>
+            <div class="muted" id="resultCount">Showing 0 of 0</div>
           </div>
-
           <div class="table">
             <div class="thead">
               <div>JSON file</div>
-              <div>Old src</div>
+              <div>Old link</div>
               <div>Rewritten</div>
               <div>New alt</div>
             </div>
-            <div id="resultBody" class="tbody"></div>
-          </div>
-
-          <div class="row">
-            <button id="btnApply" class="btn success" disabled>⬇ Apply & Download (.zip)</button>
-            <div class="small muted">Creates a zip of updated JSONs; originals can be included as backups.</div>
+            <div id="tbody" class="tbody"></div>
           </div>
         </div>
       </div>
-
-      <div class="card">
-        <div class="card-head"><h2>Overview</h2></div>
-        <div class="space">
+      <div class="col col-side">
+        <div class="card">
+          <div class="card-head"><div class="card-title">At a glance</div></div>
           <div class="stats">
-            <div class="stat"><div class="stat-k">Scanned</div><div id="ovScanned" class="stat-v">0</div></div>
-            <div class="stat"><div class="stat-k">Changed files</div><div id="ovChanged" class="stat-v">0</div></div>
-            <div class="stat"><div class="stat-k">Updates</div><div id="ovUpdates" class="stat-v">0</div></div>
+            <div class="stat"><div class="k">Scanned</div><div id="ovScanned" class="v">0</div></div>
+            <div class="stat"><div class="k">Changed files</div><div id="ovChanged" class="v">0</div></div>
+            <div class="stat"><div class="k">Updates</div><div id="ovUpdates" class="v">0</div></div>
           </div>
-          <div class="small muted mt">
-            • Matching order: exact <code>orig_path</code> → orig basename → path → basename → slug.<br/>
-            • Enable “Rewrite src” only when your CSV is 3‑columns (new_rel, alt, orig_path).
-          </div>
-          <div class="card sub">
-            <div class="card-head small"><h3>Tips</h3></div>
-            <div class="space small muted">
-              <ul class="list">
-                <li>Keep the browser tab in focus for faster directory reads.</li>
-                <li>Use the filter to quickly QA a specific image or page.</li>
-                <li>Server-side writes? Hook these buttons to an API that runs your Python.</li>
-              </ul>
-            </div>
+          <div class="help">
+            <div class="help-title">What will change?</div>
+            <p>We look for images in your JSON and add descriptive alt text. If you enable “Update <code>src</code>”, we’ll also swap the link when your CSV provides a new path.</p>
+            <div class="help-title">How do we match images?</div>
+            <p>Exact <code>orig_path</code> → original file name → path → file name → a simplified “slug” of the name.</p>
+            <div class="help-title">Why is this safe?</div>
+            <p>Everything runs in your browser. Use the ZIP to download changes—your originals remain untouched.</p>
           </div>
         </div>
       </div>
     </section>
-
-    <footer class="small muted foot">v1.1 — Built for team workflows. Client‑side preview, optional zip export for apply.</footer>
   </main>
+</div>
 </body>
 </html>
