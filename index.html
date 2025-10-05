@@ -1,185 +1,199 @@
 <!doctype html>
 <html lang="en">
+
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Alt Text Updater</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="./assets/style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Alt Text Updater</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/style.css">
 </head>
+
 <body>
-<div class="container" role="application" aria-label="Alt Text Updater">
+  <div class="container" role="application" aria-label="Alt Text Updater">
 
-  <!-- LEFT: STEPPER -->
-  <nav class="left stepper" aria-label="Steps">
-    <div class="step" id="st1" aria-current="step"><span class="step__num">1</span> Upload CSV</div>
-    <div class="step" id="st2"><span class="step__num">2</span> Choose JSON folder</div>
-    <div class="step" id="st3"><span class="step__num">3</span> Run preview</div>
-    <div class="step" id="st4"><span class="step__num">4</span> Apply &amp; download</div>
-  </nav>
+    <!-- LEFT: STEPPER -->
+    <nav class="left stepper" aria-label="Steps">
+      <div class="step" id="st1" aria-current="step"><span class="step__num">1</span> Upload CSV</div>
+      <div class="step" id="st2"><span class="step__num">2</span> Choose JSON folder</div>
+      <div class="step" id="st3"><span class="step__num">3</span> Run preview</div>
+      <div class="step" id="st4"><span class="step__num">4</span> Apply &amp; download</div>
+    </nav>
 
-  <!-- MAIN CONTENT -->
-  <main class="main">
+    <!-- MAIN CONTENT -->
+    <main class="main">
 
-    <!-- Intro -->
-    <section class="card hero" aria-labelledby="hero-h">
-      <h1 id="hero-h">No coding needed.</h1>
-      <p>Upload your <strong>CSV</strong>, pick your <strong>jsonFiles</strong> folder, then preview and download updated files. It’s safe, fast, and runs in your browser.</p>
-    </section>
+      <!-- Intro -->
+      <section class="card hero" aria-labelledby="hero-h">
+        <!-- <h1 id="hero-h">No coding needed.</h1> -->
+        <p>Upload your <strong>CSV</strong>, pick your <strong>jsonFiles</strong> folder, then preview and download
+          updated files. It’s safe, fast, and runs in your browser.</p>
+      </section>
 
-    <!-- Dropzones + toggles -->
-    <section class="card" id="inputsCard">
-      <div class="dropzones" aria-describedby="drop-help">
-        <!-- CSV -->
-        <label for="csvInput" class="dropzone" id="csvZone" tabindex="0">
-          <span class="dropzone__icon" aria-hidden="true">📄</span>
-          <div class="dropzone__text">
-            <strong id="csvTitle">Drag &amp; drop your CSV or click to browse</strong>
-            <small id="csvSub">Columns: <code>path,alt[,new_rel]</code>. <a href="#" id="sampleCsv">Download sample CSV</a></small>
-          </div>
-          <input id="csvInput" type="file" accept=".csv,text/csv" aria-describedby="csvHelp" />
-        </label>
+      <!-- Dropzones + toggles -->
+      <section class="card" id="inputsCard">
+        <div class="dropzones" aria-describedby="drop-help">
+          <!-- CSV -->
+          <label for="csvInput" class="dropzone" id="csvZone" tabindex="0">
+            <span class="dropzone__icon" aria-hidden="true">📄</span>
+            <div class="dropzone__text">
+              <strong id="csvTitle">Drag &amp; drop your CSV or click to browse</strong>
+              <small id="csvSub">Columns: <code>path,alt[,new_rel]</code>. <a href="#" id="sampleCsv">Download sample
+                  CSV</a></small>
+            </div>
+            <input id="csvInput" type="file" accept=".csv,text/csv" aria-describedby="csvHelp" />
+          </label>
 
-        <!-- Folder -->
-        <label for="dirInput" class="dropzone" id="dirZone" tabindex="0">
-          <span class="dropzone__icon" aria-hidden="true">📁</span>
-          <div class="dropzone__text">
-            <strong id="dirTitle">Pick your <code>jsonFiles/</code> directory</strong>
-            <small id="dirSub">Only <code>.json</code> files are read.</small>
-          </div>
-          <input id="dirInput" type="file" webkitdirectory directory aria-describedby="dirHelp" />
-        </label>
-      </div>
+          <!-- Folder -->
+          <label for="dirInput" class="dropzone" id="dirZone" tabindex="0">
+            <span class="dropzone__icon" aria-hidden="true">📁</span>
+            <div class="dropzone__text">
+              <strong id="dirTitle">Pick your <code>jsonFiles/</code> directory</strong>
+              <small id="dirSub">Only <code>.json</code> files are read.</small>
+            </div>
+            <input id="dirInput" type="file" webkitdirectory directory aria-describedby="dirHelp" />
+          </label>
+        </div>
 
-      <div class="help" id="drop-help"><small>Preview only. Your files are never modified until you choose “Apply &amp; download”.</small></div>
+        <div class="help" id="drop-help"><small>Preview only. Your files are never modified until you choose “Apply
+            &amp; download”.</small></div>
 
-      <!-- Inline validation -->
-      <p id="csvHelp" class="help help--error sr-only">Your CSV needs columns <code>path,alt[,new_rel]</code>. We detected: <code id="detectedCols">—</code>. See sample.</p>
-      <p id="dirHelp" class="help help--error sr-only">We couldn’t access <code>jsonFiles/</code>. Check permissions and try again.</p>
+        <!-- Inline validation -->
+        <p id="csvHelp" class="help help--error sr-only">Your CSV needs columns <code>path,alt[,new_rel]</code>. We
+          detected: <code id="detectedCols">—</code>. See sample.</p>
+        <p id="dirHelp" class="help help--error sr-only">We couldn’t access <code>jsonFiles/</code>. Check permissions
+          and try again.</p>
 
-      <hr class="sep">
+        <hr class="sep">
 
-      <!-- Toggles -->
-      <div class="grid" style="display:grid; gap:var(--s-4);">
-        <label class="toggle">
-          <input id="tgRewrite" type="checkbox" />
-          <span class="toggle__visual" aria-hidden="true"></span>
-          <span>Also update image <code>src</code> when CSV has 3 columns</span>
-        </label>
+        <!-- Toggles -->
+        <div class="grid" style="display:grid; gap:var(--s-4);">
+          <label class="toggle">
+            <input id="tgRewrite" type="checkbox" />
+            <span class="toggle__visual" aria-hidden="true"></span>
+            <span>Also update image <code>src</code> when CSV has 3 columns</span>
+          </label>
 
-        <label class="toggle">
-          <input id="tgBackup" type="checkbox" checked />
-          <span class="toggle__visual" aria-hidden="true"></span>
-          <span>Include backup of originals in ZIP</span>
-        </label>
-      </div>
-    </section>
+          <label class="toggle">
+            <input id="tgBackup" type="checkbox" checked />
+            <span class="toggle__visual" aria-hidden="true"></span>
+            <span>Include backup of originals in ZIP</span>
+          </label>
+        </div>
+      </section>
 
-    <!-- Preview toolbar + table -->
-    <section class="card" aria-label="Preview results">
-      <div class="table">
-        <!-- Toolbar -->
-        <div class="table__toolbar" role="region" aria-label="Results controls">
-          <div class="table__filters">
-            <label class="sr-only" for="search">Search</label>
-            <input id="search" class="input" type="search" inputmode="search" placeholder="Search by file, link, or alt…" style="width:340px" />
-            <div role="group" aria-label="Filters" class="table__filters">
-              <label class="toggle toggle--pill">
-                <input id="fltChanged" type="checkbox" aria-label="Changed" />
-                <span class="toggle__visual" aria-hidden="true"></span>
-                <span>Changed</span>
-              </label>
-              <label class="toggle toggle--pill">
-                <input id="fltUnchanged" type="checkbox" aria-label="Unchanged" />
-                <span class="toggle__visual" aria-hidden="true"></span>
-                <span>Unchanged</span>
-              </label>
-              <label class="toggle toggle--pill">
-                <input id="fltErrors" type="checkbox" aria-label="Errors" />
-                <span class="toggle__visual" aria-hidden="true"></span>
-                <span>Errors</span>
-              </label>
+      <!-- Preview toolbar + table -->
+      <section class="card" aria-label="Preview results">
+        <div class="table">
+          <!-- Toolbar -->
+          <div class="table__toolbar" role="region" aria-label="Results controls">
+            <div class="table__filters">
+              <label class="sr-only" for="search">Search</label>
+              <input id="search" class="input" type="search" inputmode="search"
+                placeholder="Search by file, link, or alt…" style="width:340px" />
+              <div role="group" aria-label="Filters" class="table__filters">
+                <label class="toggle toggle--pill">
+                  <input id="fltChanged" type="checkbox" aria-label="Changed" />
+                  <span class="toggle__visual" aria-hidden="true"></span>
+                  <span>Changed</span>
+                </label>
+                <label class="toggle toggle--pill">
+                  <input id="fltUnchanged" type="checkbox" aria-label="Unchanged" />
+                  <span class="toggle__visual" aria-hidden="true"></span>
+                  <span>Unchanged</span>
+                </label>
+                <label class="toggle toggle--pill">
+                  <input id="fltErrors" type="checkbox" aria-label="Errors" />
+                  <span class="toggle__visual" aria-hidden="true"></span>
+                  <span>Errors</span>
+                </label>
+              </div>
+            </div>
+            <div class="table__filters">
+              <label for="perPage" class="sr-only">Rows per page</label>
+              <select id="perPage" class="select" aria-label="Rows per page">
+                <option>25 rows</option>
+                <option selected>50 rows</option>
+                <option>100 rows</option>
+              </select>
+              <span aria-live="polite" class="kbd" id="resultsCount">0 results</span>
             </div>
           </div>
-          <div class="table__filters">
-            <label for="perPage" class="sr-only">Rows per page</label>
-            <select id="perPage" class="select" aria-label="Rows per page">
-              <option>25 rows</option>
-              <option selected>50 rows</option>
-              <option>100 rows</option>
-            </select>
-            <span aria-live="polite" class="kbd" id="resultsCount">0 results</span>
+
+          <!-- Empty state -->
+          <div class="banner" id="emptyState" role="note" aria-live="polite">
+            No results yet. Run preview to see proposed changes.
           </div>
+
+          <table aria-describedby="resultsNote" id="resultsTable">
+            <thead>
+              <tr>
+                <th scope="col">JSON file</th>
+                <th scope="col">Old link</th>
+                <th scope="col">Rewritten</th>
+                <th scope="col">New alt</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+          <p id="resultsNote" class="sr-only">Table shows images found in your JSON, whether a source link will be
+            rewritten, and the new alt text.</p>
         </div>
+      </section>
 
-        <!-- Empty state -->
-        <div class="banner" id="emptyState" role="note" aria-live="polite">
-          No results yet. Run preview to see proposed changes.
+      <!-- Loading + phases -->
+      <section class="progress card card--tight sr-only" id="loadingBox" aria-live="assertive" role="status">
+        <div class="progress__bar" aria-hidden="true"><span id="progressBar" style="width:0%"></span></div>
+        <div><strong id="progressCount">Scanning 0 / 0 files…</strong><br><small id="progressPhase">Waiting…</small>
         </div>
+      </section>
 
-        <table aria-describedby="resultsNote" id="resultsTable">
-          <thead>
-            <tr>
-              <th scope="col">JSON file</th>
-              <th scope="col">Old link</th>
-              <th scope="col">Rewritten</th>
-              <th scope="col">New alt</th>
-            </tr>
-          </thead>
-          <tbody></tbody>
-        </table>
-        <p id="resultsNote" class="sr-only">Table shows images found in your JSON, whether a source link will be rewritten, and the new alt text.</p>
-      </div>
-    </section>
+      <!-- Error banner (partial failures) -->
+      <section class="alert sr-only" id="applyErrors" role="alert">
+        Some files failed to update. <a href="#" id="dlErrorReport">Download error report (CSV)</a>.
+      </section>
 
-    <!-- Loading + phases -->
-    <section class="progress card card--tight sr-only" id="loadingBox" aria-live="assertive" role="status">
-      <div class="progress__bar" aria-hidden="true"><span id="progressBar" style="width:0%"></span></div>
-      <div><strong id="progressCount">Scanning 0 / 0 files…</strong><br><small id="progressPhase">Waiting…</small></div>
-    </section>
+    </main>
 
-    <!-- Error banner (partial failures) -->
-    <section class="alert sr-only" id="applyErrors" role="alert">
-      Some files failed to update. <a href="#" id="dlErrorReport">Download error report (CSV)</a>.
-    </section>
-
-  </main>
-
-  <!-- RIGHT RAIL -->
-  <aside class="right">
-    <section class="card">
-      <h2>At a glance</h2>
-      <div class="stats" role="group" aria-label="Statistics">
-        <div class="stat"><strong id="statScanned">0</strong><small>Scanned</small></div>
-        <div class="stat"><strong id="statChanged">0</strong><small>Changed files</small></div>
-        <div class="stat"><strong id="statUpdates">0</strong><small>Updates</small></div>
-      </div>
-    </section>
-    <section class="card">
-      <h2>What will change?</h2>
-      <p>We look for images in your JSON and add descriptive alt text. If you enable <strong>Update <code>src</code></strong>, we’ll also swap the link when your CSV provides a new path.</p>
-      <h3 style="margin-top:var(--s-4)">How do we match?</h3>
-      <p>Using your CSV, we match by path or file name. If a third column is present, we can rewrite <code>src</code> as well.</p>
-    </section>
-  </aside>
-</div>
-
-<!-- ACTION BAR -->
-<footer class="actionbar" role="region" aria-label="Actions">
-  <div class="actions">
-    <button class="btn btn--danger" id="btnReset" aria-label="Reset">Reset</button>
-    <button class="btn" id="btnReports" disabled aria-label="Download reports">Download reports</button>
-    <button class="btn btn--primary" id="btnPreview" disabled aria-label="Run preview">Run preview</button>
-    <button class="btn btn--primary" id="btnCancel" hidden aria-label="Cancel preview">Cancel</button>
-    <button class="btn btn--primary" id="btnApply" disabled aria-label="Apply and download">Apply &amp; download</button>
+    <!-- RIGHT RAIL -->
+    <aside class="right">
+      <section class="card">
+        <h2>At a glance</h2>
+        <div class="stats" role="group" aria-label="Statistics">
+          <div class="stat"><strong id="statScanned">0</strong><small>Scanned</small></div>
+          <div class="stat"><strong id="statChanged">0</strong><small>Changed files</small></div>
+          <div class="stat"><strong id="statUpdates">0</strong><small>Updates</small></div>
+        </div>
+      </section>
+      <section class="card">
+        <h2>What will change?</h2>
+        <p>We look for images in your JSON and add descriptive alt text. If you enable <strong>Update
+            <code>src</code></strong>, we’ll also swap the link when your CSV provides a new path.</p>
+        <h3 style="margin-top:var(--s-4)">How do we match?</h3>
+        <p>Using your CSV, we match by path or file name. If a third column is present, we can rewrite <code>src</code>
+          as well.</p>
+      </section>
+    </aside>
   </div>
-</footer>
 
-<!-- Live regions for toasts & progress -->
-<div class="toaststack" aria-live="polite" aria-atomic="true" id="toastStack"></div>
+  <!-- ACTION BAR -->
+  <footer class="actionbar" role="region" aria-label="Actions">
+    <div class="actions">
+      <button class="btn btn--danger" id="btnReset" aria-label="Reset">Reset</button>
+      <button class="btn" id="btnReports" disabled aria-label="Download reports">Download reports</button>
+      <button class="btn btn--primary" id="btnPreview" disabled aria-label="Run preview">Run preview</button>
+      <button class="btn btn--primary" id="btnCancel" hidden aria-label="Cancel preview">Cancel</button>
+      <button class="btn btn--primary" id="btnApply" disabled aria-label="Apply and download">Apply &amp;
+        download</button>
+    </div>
+  </footer>
 
-<script defer src="./assets/app.js"></script>
+  <!-- Live regions for toasts & progress -->
+  <div class="toaststack" aria-live="polite" aria-atomic="true" id="toastStack"></div>
+
+  <script defer src="./assets/app.js"></script>
 </body>
+
 </html>
